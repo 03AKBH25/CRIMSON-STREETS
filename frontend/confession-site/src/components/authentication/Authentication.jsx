@@ -1,33 +1,35 @@
 import styles from './authen.module.css'
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { GoogleLogin } from "@react-oauth/google";
+import { useNavigate } from "react-router-dom";
+import { AuthContext } from "../../context/AuthContext";
 
 const Authentication = () => {
   const [isLogin, setIsLogin] = useState(true);
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
-  const handleGoogleSuccess = (credentialResponse) => {
-    console.log("Google Token:", credentialResponse.credential);
+  const { loginUser, googleAuth } = useContext(AuthContext);
+  const navigate = useNavigate();
 
-    // 🔥 Send this token to your backend
-    // fetch("/api/auth/google", { method: "POST", body: JSON.stringify({ token: credentialResponse.credential }) })
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    await loginUser(email, password);
+    navigate("/");
+  };
+
+  const handleGoogleSuccess = async (credentialResponse) => {
+    await googleAuth(credentialResponse.credential);
+    navigate("/");
   };
 
   const handleGoogleError = () => {
     console.log("Google Login Failed");
   };
 
-  const registerUser = () => {
-    return(
-        <div></div>
-    )
-  }
-
   return (
     <div className={styles.authWrapper}>
-
       <div className={styles.authContainer}>
-
-        {/* Brand */}
         <div className={styles.brandSection}>
           <h1 className={styles.brandTitle}>Crimson Secrets</h1>
           <p className={styles.brandSubtitle}>
@@ -35,10 +37,7 @@ const Authentication = () => {
           </p>
         </div>
 
-        {/* Auth Card */}
         <div className={styles.authCard}>
-
-          {/* Toggle */}
           <div className={styles.toggleSection}>
             <button
               className={isLogin ? styles.activeToggle : styles.toggleBtn}
@@ -54,8 +53,7 @@ const Authentication = () => {
             </button>
           </div>
 
-          {/* Form */}
-          <form className={styles.authForm}>
+          <form className={styles.authForm} onSubmit={handleSubmit}>
             {!isLogin && (
               <div className={styles.inputGroup}>
                 <input
@@ -71,6 +69,7 @@ const Authentication = () => {
                 type="email"
                 placeholder="Email"
                 className={styles.inputField}
+                onChange={(e) => setEmail(e.target.value)}
               />
             </div>
 
@@ -79,6 +78,7 @@ const Authentication = () => {
                 type="password"
                 placeholder="Password"
                 className={styles.inputField}
+                onChange={(e) => setPassword(e.target.value)}
               />
             </div>
 
@@ -87,12 +87,10 @@ const Authentication = () => {
             </button>
           </form>
 
-          {/* Divider */}
           <div className={styles.divider}>
             <span className={styles.dividerText}>or continue with</span>
           </div>
 
-          {/* Google OAuth */}
           <div className={styles.googleSection}>
             <GoogleLogin
               onSuccess={handleGoogleSuccess}
@@ -100,9 +98,7 @@ const Authentication = () => {
               useOneTap
             />
           </div>
-
         </div>
-
       </div>
     </div>
   );
