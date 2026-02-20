@@ -1,0 +1,95 @@
+/* src/components/home/home.module.css */
+
+.homeContainer {
+  background: #0a0a0f; /* deep gothic black */
+  color: #c4c4c4;
+  overflow-x: hidden;
+  min-height: 100vh;
+}
+
+.sectionSpacing {
+  padding: 6rem 2rem;
+}
+/* ============================= */
+/* 🏰 HERO SECTION */
+/* ============================= */
+
+.heroSection {
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  background: url("https://images.unsplash.com/photo-1508261303786-c8d3f0b0c7e0?auto=format&fit=crop&w=1600&q=80")
+    center/cover no-repeat;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  animation: slowBreath 25s ease-in-out infinite alternate;
+}
+
+/* Dark red overlay */
+.heroOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.9),
+    rgba(60, 5, 5, 0.85)
+  );
+}
+
+/* Content positioning */
+.heroContent {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  max-width: 800px;
+  padding: 0 1rem;
+}
+
+/* Title */
+.heroTitle {
+  font-size: 4.5rem;
+  letter-spacing: 8px;
+  font-weight: 600;
+  color: #8b1a1a; /* dark crimson */
+  text-shadow: 0 0 20px rgba(60, 5, 5, 0.6);
+  margin-bottom: 1.5rem;
+}
+
+/* Subtitle */
+.heroSubtitle {
+  font-size: 1.2rem;
+  color: #b8a9a9;
+  margin-bottom: 2.5rem;
+  line-height: 1.6;
+}
+
+/* Button */
+.heroButton {
+  padding: 0.9rem 2.5rem;
+  background: transparent;
+  border: 1px solid #5c1111;
+  color: #c4c4c4;
+  font-size: 0.95rem;
+  letter-spacing: 2px;
+  cursor: pointer;
+  transition: all 0.4s ease;
+}
+
+.heroButton:hover {
+  background: rgba(60, 5, 5, 0.5);
+  border-color: #8b1a1a;
+  transform: translateY(-3px);
+}
+
+/* Slow breathing zoom */
+@keyframes slowBreath {
+  from {
+    background-size: 100%;
+  }
+  to {
+    background-size: 110%;
+  }
+}

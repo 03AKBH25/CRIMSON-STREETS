@@ -8,14 +8,24 @@ const Authentication = () => {
   const [isLogin, setIsLogin] = useState(true);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [name, setName] = useState("")
 
-  const { loginUser, googleAuth } = useContext(AuthContext);
+  const { loginUser, googleAuth, registerUser } = useContext(AuthContext);
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    await loginUser(email, password);
-    navigate("/");
+    try{
+      if (isLogin) {
+        await loginUser(email, password);
+      }else{
+        await registerUser(name, email, password)
+      }
+
+      navigate("/");
+    }catch(error){
+      console.log(error.message);
+    }
   };
 
   const handleGoogleSuccess = async (credentialResponse) => {
@@ -60,6 +70,7 @@ const Authentication = () => {
                   type="text"
                   placeholder="Username"
                   className={styles.inputField}
+                  onChange={(e)=>setName(e.target.value)}
                 />
               </div>
             )}
