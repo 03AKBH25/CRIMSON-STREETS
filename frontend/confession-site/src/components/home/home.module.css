@@ -93,3 +93,297 @@
     background-size: 110%;
   }
 }
+
+/* ============================= */
+/* 🏰 STATS CHAMBER */
+/* ============================= */
+
+.statsChamber {
+  text-align: center;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.statsTitle {
+  font-size: 2.2rem;
+  margin-bottom: 3rem;
+  letter-spacing: 4px;
+  color: #6e1414;
+}
+
+/* Carousel */
+
+.carouselContainer {
+  position: relative;
+  min-height: 80px;
+  margin-bottom: 4rem;
+}
+
+.carouselSlide {
+  font-size: 1.3rem;
+  color: #b8a9a9;
+  padding: 1.5rem 2rem;
+  border: 1px solid #2a0d0d;
+  background: rgba(20, 5, 5, 0.6);
+  backdrop-filter: blur(4px);
+  display: inline-block;
+  border-radius: 4px;
+}
+
+/* Past Days */
+
+.pastDaysContainer {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.pastDayCard {
+  background: rgba(15, 3, 3, 0.8);
+  border: 1px solid #2a0d0d;
+  padding: 1.5rem 2rem;
+  min-width: 180px;
+  transition: all 0.4s ease;
+}
+
+.pastDayCard h4 {
+  margin-bottom: 0.5rem;
+  color: #8b1a1a;
+}
+
+.pastDayCard p {
+  color: #b8a9a9;
+}
+
+.pastDayCard:hover {
+  background: rgba(30, 5, 5, 0.9);
+  transform: translateY(-4px);
+}
+
+/* ============================= */
+/* 🧿 MOOD SIGILS */
+/* ============================= */
+
+.sigilSection {
+  text-align: center;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.sigilTitle {
+  font-size: 2rem;
+  margin-bottom: 3rem;
+  letter-spacing: 3px;
+  color: #6e1414;
+}
+
+/* Container */
+
+.sigilContainer {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+/* Individual Sigil */
+
+.sigil {
+  width: 130px;
+  height: 130px;
+  border-radius: 50%;
+  border: 1px solid #2a0d0d;
+  background: radial-gradient(
+    circle at center,
+    rgba(40, 5, 5, 0.8),
+    rgba(10, 0, 0, 0.9)
+  );
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.4s ease;
+  position: relative;
+}
+
+.sigil span {
+  color: #b8a9a9;
+  font-size: 0.9rem;
+  letter-spacing: 2px;
+}
+
+/* Subtle inner glow on hover */
+.sigil:hover {
+  box-shadow: 0 0 20px rgba(80, 10, 10, 0.4);
+}
+
+/* Active State */
+.activeSigil {
+  border-color: #8b1a1a;
+  box-shadow: 0 0 30px rgba(80, 10, 10, 0.6);
+  transform: scale(1.05);
+}
+
+/* Mood echo text */
+
+.moodEcho {
+  margin-top: 2.5rem;
+  font-size: 1rem;
+  color: #b8a9a9;
+  letter-spacing: 1px;
+}
+/* ============================= */
+/* 🕯 SUMMON RITUAL */
+/* ============================= */
+
+.ritualSection {
+  text-align: center;
+  position: relative;
+}
+
+.ritualTitle {
+  font-size: 2rem;
+  margin-bottom: 2.5rem;
+  letter-spacing: 3px;
+  color: #6e1414;
+}
+
+/* Ritual Button */
+
+.ritualButton {
+  padding: 1rem 2.8rem;
+  background: transparent;
+  border: 1px solid #3a0d0d;
+  color: #c4c4c4;
+  letter-spacing: 2px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.5s ease;
+}
+
+.ritualButton:hover {
+  background: rgba(40, 5, 5, 0.6);
+  border-color: #6e1414;
+  transform: translateY(-3px);
+}
+
+/* Overlay */
+
+.ritualOverlay {
+  position: fixed;
+  inset: 0;
+  background: #000;
+  z-index: 50;
+}
+
+/* Secret Card */
+
+.secretCard {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(15, 3, 3, 0.95);
+  border: 1px solid #2a0d0d;
+  padding: 3rem 3.5rem;
+  max-width: 600px;
+  text-align: center;
+  z-index: 60;
+  box-shadow: 0 0 40px rgba(40, 5, 5, 0.8);
+}
+
+.secretText {
+  font-size: 1.2rem;
+  color: #b8a9a9;
+  margin-bottom: 2rem;
+  line-height: 1.7;
+}
+
+.closeSecret {
+  background: transparent;
+  border: 1px solid #3a0d0d;
+  color: #c4c4c4;
+  padding: 0.7rem 2rem;
+  cursor: pointer;
+  transition: 0.4s ease;
+}
+
+.closeSecret:hover {
+  background: rgba(40, 5, 5, 0.6);
+}
+/* ============================= */
+/* 🌒 PROMPT OF THE NIGHT */
+/* ============================= */
+
+.promptSection {
+  display: flex;
+  justify-content: center;
+  padding: 4rem 1rem;
+}
+
+.promptContainer {
+  max-width: 800px;
+  text-align: center;
+  padding: 3rem 2.5rem;
+  background: linear-gradient(
+    to bottom,
+    rgba(20, 5, 5, 0.7),
+    rgba(10, 0, 0, 0.9)
+  );
+  border: 1px solid #2a0d0d;
+  position: relative;
+}
+
+.promptTitle {
+  font-size: 1.4rem;
+  letter-spacing: 3px;
+  color: #6e1414;
+  margin-bottom: 1.5rem;
+}
+
+.promptText {
+  font-size: 1.2rem;
+  color: #b8a9a9;
+  line-height: 1.8;
+  font-style: italic;
+}
+/* ============================= */
+/* 🌫 WHISPER WALL */
+/* ============================= */
+
+.whisperSection {
+  width: 100%;
+  overflow: hidden;
+  padding: 3rem 0;
+  margin-top: 4rem;
+  border-top: 1px solid #1a0a0a;
+  border-bottom: 1px solid #1a0a0a;
+  background: rgba(10, 0, 0, 0.8);
+  position: relative;
+}
+
+/* Moving track */
+.whisperTrack {
+  display: inline-flex;
+  gap: 4rem;
+  white-space: nowrap;
+  animation: scrollWhispers 40s linear infinite;
+}
+
+/* Individual whisper */
+.whisperText {
+  font-size: 0.9rem;
+  color: rgba(184, 169, 169, 0.25);
+  letter-spacing: 1px;
+}
+
+/* Slow continuous scroll */
+@keyframes scrollWhispers {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}

@@ -3,6 +3,7 @@ import React, { useState, useContext } from "react";
 import { GoogleLogin } from "@react-oauth/google";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../../context/AuthContext";
+import bgVideo from '../../assets/bgVdo.mp4'
 
 const Authentication = () => {
   const [isLogin, setIsLogin] = useState(true);
@@ -30,6 +31,7 @@ const Authentication = () => {
 
   const handleGoogleSuccess = async (credentialResponse) => {
     await googleAuth(credentialResponse.credential);
+    console.log("success")
     navigate("/");
   };
 
@@ -39,15 +41,28 @@ const Authentication = () => {
 
   return (
     <div className={styles.authWrapper}>
+      {/* Background Video */}
+      <video
+        autoPlay
+        loop
+        muted
+        playsInline
+        className={styles.backgroundVideo}
+      >
+        <source src={bgVideo} type="video/mp4" />
+      </video>
+
+      {/* Dark Overlay */}
+      <div className={styles.overlay}></div>
+
+      {/* Content */}
       <div className={styles.authContainer}>
-        <div className={styles.brandSection}>
+        <div className={styles.authCard}>
           <h1 className={styles.brandTitle}>Crimson Secrets</h1>
           <p className={styles.brandSubtitle}>
             Confess what the crimson moon has witnessed.
           </p>
-        </div>
 
-        <div className={styles.authCard}>
           <div className={styles.toggleSection}>
             <button
               className={isLogin ? styles.activeToggle : styles.toggleBtn}
@@ -65,50 +80,40 @@ const Authentication = () => {
 
           <form className={styles.authForm} onSubmit={handleSubmit}>
             {!isLogin && (
-              <div className={styles.inputGroup}>
-                <input
-                  type="text"
-                  placeholder="Username"
-                  className={styles.inputField}
-                  onChange={(e)=>setName(e.target.value)}
-                />
-              </div>
+              <input
+                type="text"
+                placeholder="Username"
+                className={styles.inputField}
+                onChange={(e) => setName(e.target.value)}
+              />
             )}
 
-            <div className={styles.inputGroup}>
-              <input
-                type="email"
-                placeholder="Email"
-                className={styles.inputField}
-                onChange={(e) => setEmail(e.target.value)}
-              />
-            </div>
+            <input
+              type="email"
+              placeholder="Email"
+              className={styles.inputField}
+              onChange={(e) => setEmail(e.target.value)}
+            />
 
-            <div className={styles.inputGroup}>
-              <input
-                type="password"
-                placeholder="Password"
-                className={styles.inputField}
-                onChange={(e) => setPassword(e.target.value)}
-              />
-            </div>
+            <input
+              type="password"
+              placeholder="Password"
+              className={styles.inputField}
+              onChange={(e) => setPassword(e.target.value)}
+            />
 
             <button type="submit" className={styles.submitBtn}>
               {isLogin ? "Enter the Vault" : "Create Account"}
             </button>
           </form>
 
-          <div className={styles.divider}>
-            <span className={styles.dividerText}>or continue with</span>
-          </div>
+          <div className={styles.divider}>or continue with</div>
 
-          <div className={styles.googleSection}>
-            <GoogleLogin
-              onSuccess={handleGoogleSuccess}
-              onError={handleGoogleError}
-              useOneTap
-            />
-          </div>
+          <GoogleLogin
+            onSuccess={handleGoogleSuccess}
+            onError={handleGoogleError}
+            useOneTap
+          />
         </div>
       </div>
     </div>
