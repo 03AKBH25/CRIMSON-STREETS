@@ -9,7 +9,8 @@ const Authentication = () => {
   const [isLogin, setIsLogin] = useState(true);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [name, setName] = useState("")
+  const [name, setName] = useState("");
+  const [error, setError] = useState("");
 
   const { loginUser, googleAuth, registerUser } = useContext(AuthContext);
   const navigate = useNavigate();
@@ -26,6 +27,7 @@ const Authentication = () => {
       navigate("/");
     }catch(error){
       console.log(error.message);
+      setError(error.message)
     }
   };
 

@@ -1,0 +1,142 @@
+.heroWrapper {
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Background Video */
+.backgroundVideo {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  transform: translate(-50%, -50%);
+  object-fit: cover;
+  z-index: 0;
+}
+
+/* Dark Crimson Overlay */
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.65),
+    rgba(139, 0, 0, 0.25),
+    rgba(0, 0, 0, 0.9)
+  );
+  z-index: 1;
+}
+
+/* Floating Content */
+.heroContent {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  max-width: 900px;
+  padding: 20px;
+
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 1.2s ease;
+}
+
+.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Title */
+.heroTitle {
+  font-size: 70px;
+  letter-spacing: 8px;
+  color: #ff3c00;
+  text-transform: uppercase;
+
+  text-shadow:
+    /* Soft white glow close to text */
+    0 0 8px rgba(255, 255, 255, 0.8),
+    0 0 18px rgba(255, 255, 255, 0.6),
+
+    /* Existing crimson glow */
+    0 0 30px rgba(255, 60, 0, 0.8),
+    0 0 70px rgba(193, 18, 31, 0.7);
+
+  animation: subtleGlow 4s ease-in-out infinite alternate;
+}
+
+/* Subtitle */
+.heroSubtitle {
+  margin-top: 25px;
+  font-size: 20px;
+  color: #e0e0e0;
+  letter-spacing: 1px;
+  line-height: 1.8;
+}
+
+/* Button */
+.heroButton {
+  margin-top: 50px;
+  padding: 16px 50px;
+
+  background: linear-gradient(135deg, #8b0000, #ff3c00);
+  border: none;
+  border-radius: 40px;
+
+  color: white;
+  font-weight: bold;
+  letter-spacing: 2px;
+  cursor: pointer;
+
+  transition: all 0.4s ease;
+  box-shadow: 0 0 30px rgba(255, 60, 0, 0.6);
+}
+
+.heroButton:hover {
+  transform: translateY(-6px);
+  box-shadow:
+    0 15px 40px rgba(255, 60, 0, 0.9),
+    0 0 70px rgba(193, 18, 31, 0.9);
+}
+
+/* Glow animation */
+@keyframes subtleGlow {
+  0% {
+    text-shadow:
+      0 0 6px rgba(255, 255, 255, 0.6),
+      0 0 14px rgba(255, 255, 255, 0.4),
+      0 0 20px rgba(255, 60, 0, 0.6),
+      0 0 50px rgba(193, 18, 31, 0.6);
+  }
+  100% {
+    text-shadow:
+      0 0 14px rgba(255, 255, 255, 1),
+      0 0 28px rgba(255, 255, 255, 0.8),
+      0 0 40px rgba(255, 60, 0, 1),
+      0 0 100px rgba(193, 18, 31, 0.9);
+  }
+}
+
+/* Bottom Fade */
+.bottomFade {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 200px;
+
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0) 0%,
+    rgba(10, 0, 0, 0.85) 70%,
+    rgba(10, 0, 0, 1) 100%
+  );
+
+  z-index: 1;
+}

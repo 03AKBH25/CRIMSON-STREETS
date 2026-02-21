@@ -1,39 +1,34 @@
-// src/components/home/Home.jsx
+import styles from './Home.module.css'
 
-import React from "react";
-import styles from "./home.module.css";
+import HeroSection from './sections/HeroSection'
+import WhySection from './sections/WhySection'
+import HowItWorks from './sections/HowItWorks'
+import NotSocialMedia from './sections/NotSocialMedia'
 
-import HeroSection from "./HeroSection";
-import StatsChamber from "./StatsChamber";
-import MoodSigils from "./MoodSigils";
-import SummonRitual from "./SummonRitual";
-import PromptOfTheNight from "./PromptOfTheNight";
-import WhisperWall from "./WhisperWall";
+import EmotionalPulse from './rightPanel/EmotionalPusle'
+import WhisperedConfessions from './rightPanel/WhisperedConfessions'
+import EmotionalMeter from './rightPanel/EmotionalMeter'
+
 
 const Home = () => {
   return (
     <div className={styles.homeContainer}>
-      <HeroSection />
+        
+        <div className={styles.centerSection}>
+            <HeroSection/>
+            <WhySection/>
+            <HowItWorks/>
+            <NotSocialMedia/>
+        </div>
 
-      <section className={styles.sectionSpacing}>
-        <StatsChamber />
-      </section>
+        <div className={styles.rightSection}>
+            <EmotionalPulse/>
+            <WhisperedConfessions/>
+            <EmotionalMeter/>
+        </div>
 
-      <section className={styles.sectionSpacing}>
-        <MoodSigils />
-      </section>
-
-      <section className={styles.sectionSpacing}>
-        <SummonRitual />
-      </section>
-
-      <section className={styles.sectionSpacing}>
-        <PromptOfTheNight />
-      </section>
-
-      <WhisperWall />
     </div>
-  );
-};
+  )
+}
 
-export default Home;
+export default Home

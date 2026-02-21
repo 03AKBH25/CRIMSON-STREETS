@@ -1,0 +1,116 @@
+.howWrapper {
+  width: 100%;
+  padding: 100px 40px 140px;
+  position: relative;
+
+  /* Continue dark descent */
+  background: linear-gradient(
+    to bottom,
+    #0f0000 0%,
+    #0a0000 40%,
+    #000000 100%
+  );
+
+  display: flex;
+  justify-content: center;
+}
+
+.container {
+  max-width: 1200px;
+  text-align: center;
+
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 1.2s ease;
+}
+
+.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Heading */
+.heading {
+  font-size: 40px;
+  color: #ff3c00;
+  letter-spacing: 3px;
+  margin-bottom: 100px;
+
+  text-shadow:
+    0 0 15px rgba(255, 60, 0, 0.5),
+    0 0 40px rgba(193, 18, 31, 0.4);
+}
+
+/* Timeline layout */
+.timeline {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  gap: 40px;
+}
+
+/* Connecting Line */
+.timeline::before {
+  content: "";
+  position: absolute;
+  top: 40px;
+  left: 10%;
+  width: 80%;
+  height: 2px;
+  background: linear-gradient(
+    to right,
+    rgba(255, 60, 0, 0.1),
+    rgba(255, 60, 0, 0.6),
+    rgba(255, 60, 0, 0.1)
+  );
+  z-index: 0;
+}
+
+/* Step */
+.step {
+  position: relative;
+  z-index: 1;
+  flex: 1;
+  padding: 20px;
+  transition: transform 0.4s ease;
+}
+
+.step:hover {
+  transform: translateY(-8px);
+}
+
+/* Number Circle */
+.circle {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto 20px auto;
+
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  font-size: 22px;
+  font-weight: bold;
+  color: #ffffff;
+
+  background: linear-gradient(135deg, #8b0000, #ff3c00);
+  box-shadow:
+    0 0 25px rgba(255, 60, 0, 0.7),
+    0 0 60px rgba(193, 18, 31, 0.5);
+}
+
+/* Step Title */
+.step h3 {
+  color: #ff3c00;
+  margin-bottom: 10px;
+  letter-spacing: 1px;
+}
+
+/* Step Text */
+.step p {
+  color: #cccccc;
+  font-size: 15px;
+  line-height: 1.6;
+}
