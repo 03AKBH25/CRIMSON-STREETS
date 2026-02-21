@@ -3,7 +3,130 @@
   background: black;
   color: white;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-evenly;
   align-items: center;
   padding-left: 20px;
+}
+.parentCont a {
+    position: relative;
+    text-decoration: none;
+    color: #bbb;
+    margin: 0 18px;
+    font-size: 15px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+}
+
+/* Hover effect */
+.parentCont a:hover {
+    color: #ff2e2e;
+    text-shadow: 0 0 8px rgba(255, 46, 46, 0.6);
+}
+
+/* Animated underline */
+.parentCont a::after {
+    content: "";
+    position: absolute;
+    width: 0%;
+    height: 2px;
+    bottom: -6px;
+    left: 0;
+    background: linear-gradient(90deg, #8b0000, #ff2e2e);
+    transition: width 0.3s ease;
+}
+
+.parentCont a:hover::after {
+    width: 100%;
+}
+
+/* Active route */
+.parentCont a.active {
+    color: #ff2e2e;
+}
+.profileWrapper {
+    position: relative;
+}
+.optionsCont{
+  display: flex;
+  width: 30%;
+  justify-content: center;
+  gap: 15px;
+}
+.profile {
+    background: transparent;
+    border: 1px solid rgba(255, 46, 46, 0.3);
+    padding: 4px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.profile:hover {
+    box-shadow: 0 0 15px rgba(255, 0, 0, 0.6);
+    transform: scale(1.05);
+}
+
+.profilePic {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.dropdown {
+    position: absolute;
+    top: 55px;
+    right: 0;
+    background: linear-gradient(180deg, #141414, #0f0f0f);
+    border: 1px solid rgba(139, 0, 0, 0.4);
+    box-shadow: 
+        0 0 25px rgba(139, 0, 0, 0.25),
+        0 10px 40px rgba(0, 0, 0, 0.8);
+    border-radius: 12px;
+    width: 180px;
+    padding: 10px 0;
+    backdrop-filter: blur(6px);
+    animation: fadeIn 0.25s ease-in-out;
+    z-index: 25;
+}
+
+.dropdownItem {
+    padding: 12px 18px;
+    color: #aaa;
+    font-size: 14px;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+    transition: all 0.25s ease;
+}
+
+.dropdownItem:hover {
+    background: rgba(139, 0, 0, 0.2);
+    color: #ff3c3c;
+    padding-left: 22px;
+}
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-8px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+.siteLogo{
+  height: 60px;
+  width: 60px;
+  margin: 5px 0px; 
+}
+.headCont{
+  width: 20%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
 }

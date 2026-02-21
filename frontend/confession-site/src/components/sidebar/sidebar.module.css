@@ -1,9 +1,17 @@
 .sidebar {
   width: 220px;
-  background-image: url("");
   color: white;
   padding: 20px;
   display: flex;
   flex-direction: column;
   gap: 15px;
+  background:
+  linear-gradient(
+    to bottom,
+    #000000,
+    #120000 40%,
+    #1a0000 100%
+  );
+  box-shadow:
+  inset -5px 0 30px rgba(255, 60, 0, 0.08);
 }

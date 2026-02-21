@@ -14,15 +14,7 @@ const Sidebar = () => {
         backgroundRepeat: "no-repeat",
       }}
     >
-      <NavLink to="/" end>
-        Home
-      </NavLink>
-      <NavLink to="/your-sins">
-        Your Thoughts
-      </NavLink>
-      <NavLink to="/confess/family">
-        Confession
-      </NavLink>
+      
     </div>
   )
 }

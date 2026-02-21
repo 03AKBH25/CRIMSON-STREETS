@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import styles from "./HowItWorks.module.css";
+import howVideo from "../../../assets/3rdSection.mp4";
 
 const HowItWorks = () => {
   const [visible, setVisible] = useState(false);
@@ -10,6 +11,20 @@ const HowItWorks = () => {
 
   return (
     <section className={styles.howWrapper}>
+
+      {/* Background Video */}
+      <video
+        className={styles.backgroundVideo}
+        src={howVideo}
+        autoPlay
+        loop
+        muted
+        playsInline
+      />
+
+      {/* Overlay for readability */}
+      <div className={styles.overlay}></div>
+
       <div className={`${styles.container} ${visible ? styles.show : ""}`}>
         
         <h2 className={styles.heading}>How It Works</h2>
@@ -25,7 +40,7 @@ const HowItWorks = () => {
           <div className={styles.step}>
             <div className={styles.circle}>02</div>
             <h3>Speak Without Fear</h3>
-            <p>No login. No identity. Just your truth.</p>
+            <p>Just your truth.</p>
           </div>
 
           <div className={styles.step}>
@@ -37,6 +52,11 @@ const HowItWorks = () => {
         </div>
 
       </div>
+
+      {/* Top & Bottom Fade for smooth blending */}
+      <div className={styles.topFade}></div>
+      <div className={styles.bottomFade}></div>
+
     </section>
   );
 };

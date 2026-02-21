@@ -1,0 +1,59 @@
+.pulseWrapper {
+  margin-bottom: 90px;
+  position: relative;
+}
+
+.title {
+  font-size: 20px;
+  margin-bottom: 35px;
+  color: #ff3c00;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  opacity: 0.9;
+}
+
+.stat {
+  margin-bottom: 28px;
+  position: relative;
+}
+
+.labelRow {
+  display: flex;
+  justify-content: space-between;
+  font-size: 13px;
+  color: #cccccc;
+  margin-bottom: 6px;
+}
+
+.bar {
+  width: 100%;
+  height: 3px;
+  background: rgba(255, 255, 255, 0.06);
+  position: relative;
+  overflow: hidden;
+}
+
+.fill {
+  height: 100%;
+  background: linear-gradient(90deg, #3b0000, #ff3c00);
+  box-shadow: 0 0 12px rgba(255, 60, 0, 0.8);
+  transition: width 1.5s ease;
+}
+
+/* subtle breathing glow */
+.fill::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -40%;
+  width: 40%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.2);
+  filter: blur(6px);
+  animation: shimmer 4s infinite;
+}
+
+@keyframes shimmer {
+  0% { left: -40%; }
+  100% { left: 120%; }
+}

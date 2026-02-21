@@ -11,44 +11,48 @@ const WhySection = () => {
   return (
     <section className={styles.whyWrapper}>
       <div className={`${styles.container} ${visible ? styles.show : ""}`}>
-        
-        <h2 className={styles.heading}>
-          Some truths don’t survive daylight.
-        </h2>
 
-        <p className={styles.subText}>
-          This place exists for the words you never said,
-          the emotions you buried,
-          and the weight you carry in silence.
-        </p>
+        {/* Left Romantic Block */}
+        <div className={styles.leftContent}>
+          <h2 className={styles.heading}>
+            Some feelings are too sacred to survive daylight.
+          </h2>
 
-        <div className={styles.cardContainer}>
-          
-          <div className={styles.card}>
-            <h3>Unspoken Love</h3>
-            <p>
-              Feelings you never confessed.
-              The message you typed but never sent.
-            </p>
-          </div>
+          <p className={styles.mainText}>
+            The love you never confessed.  
+            The regret that still visits you at night.  
+            The guilt you carry in silence.
+          </p>
 
-          <div className={styles.card}>
-            <h3>Silent Regret</h3>
-            <p>
-              Mistakes that echo in your mind.
-              Apologies you never delivered.
-            </p>
-          </div>
-
-          <div className={styles.card}>
-            <h3>Hidden Guilt</h3>
-            <p>
-              Secrets too heavy for friends.
-              Truths that need a safe resting place.
-            </p>
-          </div>
-
+          <p className={styles.subText}>
+            This place exists for the words that were never meant
+            to be spoken out loud — but were never meant to stay buried either.
+          </p>
         </div>
+
+        {/* Right Whisper Column */}
+        <div className={styles.rightWhispers}>
+          <div className={styles.whisperCard}>
+            <span className={styles.tag}>LONGING</span>
+            <p className={styles.textColor}>“I still think about her.”</p>
+          </div>
+
+          <div className={styles.whisperCard}>
+            <span className={styles.tag}>GUILT</span>
+            <p className={styles.textColor}>“I lied, and they trust me.”</p>
+          </div>
+
+          <div className={styles.whisperCard}>
+            <span className={styles.tag}>FORBIDDEN</span>
+            <p className={styles.textColor}>“I love someone I shouldn’t.”</p>
+          </div>
+
+          <div className={styles.whisperCard}>
+            <span className={styles.tag}>REGRET</span>
+            <p className={styles.textColor}>“I miss what we never were.”</p>
+          </div>
+        </div>
+
       </div>
     </section>
   );

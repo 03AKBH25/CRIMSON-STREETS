@@ -9,35 +9,43 @@ const NotSocialMedia = () => {
   }, []);
 
   return (
-    <section className={styles.notWrapper}>
+    <section className={styles.connectionWrapper}>
       <div className={`${styles.container} ${visible ? styles.show : ""}`}>
 
-        <h2 className={styles.heading}>
-          Beyond Social Media
-        </h2>
+        <div className={styles.left}>
+          <h2 className={styles.heading}>
+            Connection Without Exposure
+          </h2>
 
-        <div className={styles.split}>
+          <p className={styles.description}>
+            This is a place where emotions connect
+            without identities colliding.
+            Where strangers relate
+            without needing to know each other’s names.
+          </p>
 
-          <div className={styles.left}>
-            <h3>What We Are Not</h3>
-            <ul>
-              <li>No followers.</li>
-              <li>No public profiles.</li>
-              <li>No comment wars.</li>
-              <li>No validation chasing.</li>
-            </ul>
+          <p className={styles.softLine}>
+            Here, vulnerability is strength —
+            and anonymity is protection.
+          </p>
+        </div>
+
+        <div className={styles.right}>
+          <div className={styles.point}>
+            Anonymous, yet deeply human.
           </div>
 
-          <div className={styles.right}>
-            <h3>What We Are</h3>
-            <ul>
-              <li>Anonymous expression.</li>
-              <li>Emotional release.</li>
-              <li>Silent understanding.</li>
-              <li>A safe place for truth.</li>
-            </ul>
+          <div className={styles.point}>
+            Public confessions, private identities.
           </div>
 
+          <div className={styles.point}>
+            Empathy without exposure.
+          </div>
+
+          <div className={styles.point}>
+            Connection without performance.
+          </div>
         </div>
 
       </div>
