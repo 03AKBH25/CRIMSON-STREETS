@@ -1,0 +1,69 @@
+.container {
+  position: relative;
+  padding: 3rem;
+  min-height: 100vh;
+  background: #000;
+  overflow: hidden;
+}
+
+/* Heartbeat Glow Layer */
+.container::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 800px;
+  height: 800px;
+
+  transform: translate(-50%, -50%) scale(1);
+  border-radius: 50%;
+
+  background: radial-gradient(
+    circle,
+    rgba(139, 0, 0, 0.35) 0%,
+    rgba(139, 0, 0, 0.15) 30%,
+    rgba(0, 0, 0, 0) 70%
+  );
+
+  pointer-events: none;
+  z-index: 0;
+
+  animation: heartbeatGlow 5s ease-in-out infinite;
+}
+
+/* Ensure content sits above glow */
+.container > * {
+  position: relative;
+  z-index: 1;
+}
+
+@keyframes heartbeatGlow {
+  0% {
+    transform: translate(-50%, -50%) scale(0.95);
+    opacity: 0.6;
+  }
+  40% {
+    transform: translate(-50%, -50%) scale(1.05);
+    opacity: 1;
+  }
+  60% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 0.85;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(0.95);
+    opacity: 0.6;
+  }
+}
+
+.heading {
+  text-align: center;
+  color: #e63946;
+  margin-bottom: 3rem;
+}
+
+.relationsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+}

@@ -25,7 +25,7 @@ const Header = () =>{
             <div className={styles.optionsCont}>
                 <NavLink to="/" end>Home</NavLink>
                 <NavLink to="/your-sins">Your Thoughts</NavLink>
-                <NavLink to="/confess/family">Confession</NavLink>
+                <NavLink to="/confess">Confess</NavLink>
             </div>
             {user && (
                 <div 

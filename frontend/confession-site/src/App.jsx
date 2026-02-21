@@ -24,7 +24,7 @@ const App = () => {
         {/* Protected Layout */}
         <Route element={<ProtectedRoute><Layout /></ProtectedRoute>}>
           <Route path="/" element={<Home />} />
-          <Route path="/confess/:category" element={<Confess />} />
+          <Route path="/confess" element={<Confess />} />
           <Route path="/your-sins" element={<History />} />
         </Route>
       </Routes>

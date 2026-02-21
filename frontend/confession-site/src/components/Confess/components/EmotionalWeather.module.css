@@ -1,0 +1,49 @@
+.weatherContainer {
+  margin-top: 4rem;
+  padding: 2rem;
+  border-top: 1px solid #8b0000;
+}
+
+.title {
+  text-align: center;
+  color: #e63946;
+  margin-bottom: 2rem;
+  letter-spacing: 2px;
+}
+
+.stats {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+.stat {
+  text-align: center;
+}
+
+.number {
+  display: block;
+  font-size: 1.8rem;
+  color: #ff6b6b;
+  margin-bottom: 0.5rem;
+
+  animation: numberPulse 3s infinite ease-in-out;
+}
+
+@keyframes numberPulse {
+  0% {
+    text-shadow: 0 0 5px rgba(255, 46, 46, 0.4);
+  }
+  50% {
+    text-shadow: 0 0 20px rgba(255, 46, 46, 0.9);
+  }
+  100% {
+    text-shadow: 0 0 5px rgba(255, 46, 46, 0.4);
+  }
+}
+
+.label {
+  font-size: 0.9rem;
+  color: #aaa;
+}

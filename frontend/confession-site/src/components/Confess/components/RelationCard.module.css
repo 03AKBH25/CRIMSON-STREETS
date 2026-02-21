@@ -1,0 +1,50 @@
+.card {
+  background: #0d0d0d;
+  border: 1px solid #8b0000;
+  border-radius: 8px;
+  padding: 1.5rem;
+
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border 0.3s ease;
+
+  box-shadow: 0 0 10px rgba(139, 0, 0, 0.2);
+}
+
+/* Dramatic hover */
+.card:hover {
+  transform: translateY(-6px) scale(1.03);
+  border: 1px solid #ff2e2e;
+  box-shadow: 0 0 30px rgba(255, 46, 46, 0.6);
+}
+
+/* Subtle breathing glow */
+.card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 8px;
+  background: radial-gradient(
+    circle at center,
+    rgba(139, 0, 0, 0.2),
+    transparent 70%
+  );
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.card:hover::before {
+  opacity: 1;
+}
+
+.label {
+  color: #e63946;
+  margin-bottom: 0.5rem;
+}
+
+.description {
+  color: #aaa;
+  font-size: 0.9rem;
+}
