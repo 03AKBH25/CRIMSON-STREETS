@@ -1,0 +1,32 @@
+.filterContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.8rem;
+  margin-bottom: 2rem;
+}
+
+.filterBtn {
+  background: transparent;
+  border: 1px solid #444;
+  color: #aaa;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.filterBtn:hover {
+  border-color: #e63946;
+  color: #fff;
+  box-shadow: 0 0 12px rgba(230, 57, 70, 0.6);
+}
+
+.active {
+  border-color: #ff2e2e;
+  color: #fff;
+  background: rgba(139, 0, 0, 0.3);
+  box-shadow: 0 0 18px rgba(255, 46, 46, 0.7);
+}

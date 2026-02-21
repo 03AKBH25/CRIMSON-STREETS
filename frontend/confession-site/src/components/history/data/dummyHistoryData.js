@@ -253,3 +253,12 @@ const dummyConfessions = [
     text: "They smiled at me once and now I’m mad they didn’t fall in love."
   }
 ];
+
+export const normalizedDummyConfessions = dummyConfessions.map((item) => ({
+  _id: `dummy-${item.id}`,   // unique ID
+  category: item.relation.toLowerCase(),
+  mood: item.emotion,
+  text: item.text,
+  createdAt: new Date().toISOString(),
+  isDummy: true
+}));
