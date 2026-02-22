@@ -15,20 +15,22 @@
   width: 800px;
   height: 800px;
 
-  transform: translate(-50%, -50%) scale(1);
+  transform: translate(-50%, -50%) scale(1.5,1);
   border-radius: 50%;
 
   background: radial-gradient(
-    circle,
-    rgba(139, 0, 0, 0.35) 0%,
-    rgba(139, 0, 0, 0.15) 30%,
-    rgba(0, 0, 0, 0) 70%
-  );
+circle,
+rgba(255, 0, 0, 0.35) 0%,
+rgba(200, 0, 0, 0.25) 25%,
+rgba(139, 0, 0, 0.15) 45%,
+rgba(0, 0, 0, 0) 75%
+);
 
-  pointer-events: none;
-  z-index: 0;
+filter: blur(40px); /* makes glow spread more naturally */
+pointer-events: none;
+z-index: 0;
 
-  animation: heartbeatGlow 5s ease-in-out infinite;
+animation: heartbeatGlow 5s ease-in-out infinite;
 }
 
 /* Ensure content sits above glow */
@@ -60,10 +62,34 @@
   text-align: center;
   color: #e63946;
   margin-bottom: 3rem;
+
+  opacity: 0;
+  filter: blur(12px);
+  transform: translateY(20px);
+
+  animation: headingReveal 1.4s ease-out forwards;
 }
 
 .relationsGrid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 1.5rem;
+}
+
+@keyframes headingReveal{
+  0% {
+    opacity: 0;
+    filter: blur(12px);
+    transform: translateY(20px);
+  }
+  60% {
+    opacity: 1;
+    filter: blur(4px);
+    transform: translateY(5px);
+  }
+  100% {
+    opacity: 1;
+    filter: blur(0);
+    transform: translateY(0);
+  }
 }

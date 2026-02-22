@@ -18,8 +18,8 @@ const Confess = () => {
     { id: 4, label: "Friend", slug: "friend", description: "Betrayals or bonds?" },
     { id: 5, label: "EX", slug: "ex", description: "What still lingers..." },
     { id: 6, label: "Wife", slug: "wife", description: "Promises, pain, and permanence." },
-    { id: 7, label: "Husband", slug: "husband", description: "" },
-    { id: 8, label: "CUSTOMIZE", slug: "customize", description: "" }
+    { id: 7, label: "Husband", slug: "husband", description: "Unattentive, forgets" },
+    { id: 8, label: "CUSTOMIZE", slug: "customize", description: "Add New Relation" }
   ];
 
   const handleOpenModal = (relation) => {
