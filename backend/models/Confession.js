@@ -5,10 +5,14 @@ const confessionSchema = new mongoose.Schema(
         user: {
             type: mongoose.Schema.Types.ObjectId,
             ref: "User",
-            require: true
+            required: true
         },
 
         category: {
+            type: String,
+            required: true
+        },
+        mood:{
             type: String,
             required: true
         },

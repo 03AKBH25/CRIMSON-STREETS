@@ -111,11 +111,27 @@ const Authentication = () => {
 
           <div className={styles.divider}>or continue with</div>
 
-          <GoogleLogin
-            onSuccess={handleGoogleSuccess}
-            onError={handleGoogleError}
-            useOneTap
-          />
+          <div className={styles.socialLogin}>
+            <div className={styles.socialBtn}>
+              <GoogleLogin
+                onSuccess={handleGoogleSuccess}
+                onError={handleGoogleError}
+                useOneTap
+                theme="filled_black"
+                shape="circle"
+                size="large"
+                text="signin_with"
+              />
+            </div>
+
+          <button className={styles.iconBtn}>
+            <i className="fa-brands fa-x-twitter"></i>
+          </button>
+
+          <button className={styles.iconBtn}>
+            <i className="fa-brands fa-facebook-f"></i>
+          </button>
+        </div>
         </div>
       </div>
     </div>
