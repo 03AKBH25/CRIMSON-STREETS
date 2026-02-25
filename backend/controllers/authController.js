@@ -6,6 +6,7 @@ const {OAuth2Client} = require("google-auth-library")
 const client = new OAuth2Client(process.env.GOOGLE_CLIENT_ID);
 
 const registerUser = async(req,res) => {
+
     try{
         const { name, email, password } = req.body;
         const userExists = await User.findOne({email});

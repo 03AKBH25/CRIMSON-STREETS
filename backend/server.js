@@ -6,11 +6,21 @@ const connectDB = require('./config/db');
 const authRoutes = require("./routes/authRoutes")
 const { protect } = require("./middleware/authMiddleware");
 const confessionRoutes = require("./routes/confessionRoutes")
+const helmet = require("helmet")
+const rateLimit = require("express-rate-limit")
+
+const limiter = rateLimit({
+    windowMs: 5*60*1000,
+    max: 50,
+    message: "Too many requests from this IP, please try again later."
+})
 
 const app = express();
 
 connectDB();
 
+app.use(limiter)
+app.use(helmet())
 app.use(cors());
 app.use(express.json());
 app.use("/api/auth",authRoutes)

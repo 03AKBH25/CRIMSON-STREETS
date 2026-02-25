@@ -1,6 +1,5 @@
 const Confession = require("../models/Confession");
 
-
 // Create confession
 const createConfession = async (req, res) => {
   try {
