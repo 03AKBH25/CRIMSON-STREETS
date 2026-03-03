@@ -1,4 +1,5 @@
 const Confession = require("../models/Confession");
+const { encrypt, decrypt } = require("../utils/encrypt")
 
 // Create confession
 const createConfession = async (req, res) => {
@@ -9,7 +10,7 @@ const createConfession = async (req, res) => {
       user: req.user._id,
       category,
       mood,
-      text,
+      text:encrypt(text)
     });
 
     res.status(201).json(confession);
@@ -23,10 +24,15 @@ const createConfession = async (req, res) => {
 // Get logged-in user's confessions
 const getUserConfessions = async (req, res) => {
   try {
-    const confessions = await Confession.find({ user: req.user._id })
+    const confessions = await Confession.find({ user: req.user._id, isDeleted: false })
       .sort({ createdAt: -1 });
 
-    res.json(confessions);
+    const decryptedConfessions = confessions.map(conf=>({
+      ...conf.toObject(),
+      text:decrypt(conf.text)
+    }))
+
+    res.json(decryptedConfessions);
 
   } catch (error) {
     res.status(500).json({ message: error.message });
@@ -39,7 +45,8 @@ const getConfessionsByCategory = async (req, res) => {
   try {
     const confessions = await Confession.find({
       user: req.user._id,
-      category: req.params.category
+      category: req.params.category,
+      isDeleted: false
     }).sort({ createdAt: -1 });
 
     res.json(confessions);
@@ -63,7 +70,8 @@ const deleteConfession = async (req, res) => {
       return res.status(401).json({ message: "Not authorized" });
     }
 
-    await confession.deleteOne();
+    confession.isDeleted = true
+    await confession.save()
 
     res.json({ message: "Confession deleted successfully" });
 

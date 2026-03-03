@@ -20,6 +20,10 @@ const confessionSchema = new mongoose.Schema(
         text: {
             type:String,
             required: true
+        },
+        isDeleted: {
+            type: Boolean,
+            default: false
         }
     },
     {timestamps:true}

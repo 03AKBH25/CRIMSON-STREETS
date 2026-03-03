@@ -51,6 +51,7 @@ const Header = () =>{
                             >
                                 Logout
                             </p>
+                            <p className={styles.dropdownItem}>Themes</p>
                         </div>
                     )}
                 </div>
